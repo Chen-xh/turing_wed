@@ -2,7 +2,9 @@ package com.turing.website.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,6 +20,8 @@ import java.util.Date;
 @Table(name = "history")
 @Data
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class History implements Serializable {
 
@@ -27,6 +31,7 @@ public class History implements Serializable {
     private Long introductionId;
     @Column(name = "history_info", nullable = false, length = 255)
     private String introductionInfo;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "history_edit_time", nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)//实体类会封装成完整的时间

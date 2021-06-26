@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -31,5 +32,11 @@ public class Role {
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<Member> members;
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties(value = {"permissions","members","teachers"})
+    @JsonIgnore
+    @JoinTable(name = "role_permissions",
+            joinColumns = {@JoinColumn(name = "role_id",referencedColumnName="role_id")},
+            inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName="permission_id")})
+    private List<Permission> permissions;
 }

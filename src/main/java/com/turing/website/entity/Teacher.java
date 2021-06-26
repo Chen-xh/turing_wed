@@ -12,7 +12,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "teacher")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Teacher {
@@ -45,7 +48,7 @@ public class Teacher {
     @JsonIgnore
     private String teacherPassword;
     @JoinColumn(name = "role_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     private Role role;
 }

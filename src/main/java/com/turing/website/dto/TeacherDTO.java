@@ -3,8 +3,10 @@ package com.turing.website.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 
@@ -15,6 +17,8 @@ import javax.validation.constraints.Email;
 @EqualsAndHashCode(callSuper = false)
 @Data
 @ApiModel
+@NoArgsConstructor
+@AllArgsConstructor
 public class TeacherDTO extends PeopleDTO{
     @ApiModelProperty(value = "教师id")
     private Long teacherId;

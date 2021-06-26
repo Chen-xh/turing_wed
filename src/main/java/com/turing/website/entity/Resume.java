@@ -10,7 +10,10 @@ import javax.persistence.*;
  * @author CHEN
  * @date 2020/2/29 17:50
  */
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @Entity
 @Table(name = "resume")

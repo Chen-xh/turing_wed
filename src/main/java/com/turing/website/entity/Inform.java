@@ -15,8 +15,11 @@ import java.util.Date;
  */
 @Table(name = "inform")
 @Entity
-@Data
+@Getter
+@Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Inform implements Serializable {
 
@@ -30,6 +33,7 @@ public class Inform implements Serializable {
     private String informContent;
     @Column(name = "inform_create_time", nullable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date informCreateTime;
     @Column(name = "inform_username", nullable = false, length = 20)
     private String informUsername;

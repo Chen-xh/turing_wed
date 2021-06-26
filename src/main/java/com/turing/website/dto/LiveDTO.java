@@ -12,6 +12,8 @@ import java.util.Date;
  * @date 2020/2/29 17:50
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class LiveDTO {
 
     private Long liveId;

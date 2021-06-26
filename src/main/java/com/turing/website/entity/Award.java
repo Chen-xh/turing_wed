@@ -1,6 +1,5 @@
 package com.turing.website.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -15,8 +14,11 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "award")
-@Data
+@Getter
+@Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Award implements Serializable {
 
@@ -33,12 +35,13 @@ public class Award implements Serializable {
      * Member中的awards又会被序列化, 此时又会访问Award, 造成无限循环
      * project同理
      */
-    @JsonIgnoreProperties(value = {"awards", "projects"})
+
     @JoinTable(name = "member_award",
             joinColumns = {@JoinColumn(name = "award_id", referencedColumnName = "award_id")},
             inverseJoinColumns = {@JoinColumn(name = "member_id", referencedColumnName = "member_id")})
     @ManyToMany(fetch = FetchType.LAZY)
-    @JsonIgnore
+
+    @JsonIgnoreProperties(value = {"awards","projects"})
     private Set<Member> awardMember;
 
     @Column(name = "award_time", nullable = false)

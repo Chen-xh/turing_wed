@@ -15,7 +15,10 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "member")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Member implements Serializable {
@@ -71,7 +74,8 @@ public class Member implements Serializable {
     @Column(name = "member_icon", nullable = false)
     private String memberIcon;
     @JoinColumn(name = "role_id", referencedColumnName = "role_id", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties(value ={"members","teachers","permissions"})
     @JsonIgnore
     private Role role;
 

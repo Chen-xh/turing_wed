@@ -1,7 +1,9 @@
 package com.turing.website.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -11,6 +13,8 @@ import java.util.Date;
  * @date 2020/2/29 17:50
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class LeadInspectionDTO {
     @ApiModelProperty(value = "领导视察id", hidden = true)
     private Long id;

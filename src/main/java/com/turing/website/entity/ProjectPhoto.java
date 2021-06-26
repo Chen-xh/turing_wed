@@ -12,8 +12,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "project_photo")
-@Data
 @ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class ProjectPhoto implements Serializable {
 

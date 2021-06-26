@@ -1,7 +1,9 @@
 package com.turing.website.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -15,6 +17,8 @@ import java.util.Date;
 @Table(name = "leadInspection")
 @Data
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class LeadInspection{
     @Id

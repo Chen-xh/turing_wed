@@ -13,7 +13,10 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "project")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Project implements Serializable {

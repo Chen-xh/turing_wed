@@ -14,7 +14,10 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "live")
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @ToString
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Live implements Serializable {
