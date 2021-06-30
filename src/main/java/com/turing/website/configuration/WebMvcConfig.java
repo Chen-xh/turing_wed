@@ -21,7 +21,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // 解决swagger无法访问
         registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
 
-        registry.addResourceHandler("/**").addResourceLocations("file:"+fileUrl);
         registry.addResourceHandler("/static/**").addResourceLocations("file:" + fileUrl);
 
     }
