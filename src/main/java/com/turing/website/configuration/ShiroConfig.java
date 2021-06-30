@@ -55,7 +55,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/logout", "anon");
         filterChainDefinitionMap.put("/teamTeacher/**", "anon");
         filterChainDefinitionMap.put("/teamMember/**", "anon");
-        filterChainDefinitionMap.put("/images/**", "anon");
+        filterChainDefinitionMap.put("/static/**", "anon");
         // 拦截接口
         filterChainDefinitionMap.put("/admin/**", "jwt");
         filterChainDefinitionMap.put("/backside/**", "jwt");
